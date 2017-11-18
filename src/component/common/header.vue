@@ -1,19 +1,21 @@
 <template>
   <header>
-      <mt-header fixed title="小买卖"></mt-header>
+      <mt-header fixed title="大买卖"></mt-header>
       <i></i>
   </header>
 </template>
 
 <script>
-     export default {
-        
-    }
+export default {};
 </script>
 
-<style scoped>
-header i{
+<style lang='less' scoped>
+header {
+ background-color: blueviolet;
+ font-size: 20px;
+ i {
     display: block;
     height: 40px;
+  }
 }
 </style>

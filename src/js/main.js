@@ -4,7 +4,7 @@
 
 // 导入第三方包
 import Vue from 'Vue';
-// import VueRouter from 'vue-router';
+import VueRouter from 'vue-router';
 import Common from '../component/common';
 import MintUi from 'mint-ui';
 import axios from 'axios';
@@ -14,7 +14,7 @@ import 'mui/dist/css/mui.css';
 import 'mui/examples/hello-mui/css/icons-extra.css';
 
 // 手动启用vue插件,在以前VueRouter会自动调用use，但是我们使用了模块化之后，window下没有vue全局变量，就无法自动use
-// Vue.use(VueRouter);
+Vue.use(VueRouter);
 Vue.use(MintUi);
 Vue.use(Common);
 // 把axios放置到原型 将来其他组件直接可以拿到
@@ -23,6 +23,9 @@ Vue.prototype.axios = axios;
 import AppComponent from '../component/App.vue';
 
 
+// 导入配置
+import routerConfig from '../router'
+
 new Vue({
     // 关联页面标签
     el: '#app',
@@ -30,6 +33,7 @@ new Vue({
     render(c) {
         // 这个函数需要们返回一个组件：把App组件渲染到el标签中
         return c(AppComponent);
-    }
+    },
+    router:new VueRouter(routerConfig)
 
 })

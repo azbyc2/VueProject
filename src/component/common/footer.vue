@@ -26,5 +26,7 @@ export default {
 </script>
 
 <style>
-
+.mui-bar-tab .mui-tab-item.mui-active {
+    color: blueviolet;
+}
 </style>

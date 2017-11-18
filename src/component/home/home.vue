@@ -3,9 +3,9 @@
     <!-- 轮播图 -->
     <mt-swipe :auto="4000">
       <mt-swipe-item v-for="item in lunbos" v-bind:key="item.img">
-        <a v-bind:href="item.url">
+        <router-link v-bind:to="item.url">
           <img v-bind:src="item.img">
-        </a>
+        </router-link>
 
       </mt-swipe-item>
      
@@ -79,6 +79,12 @@ article {
   height: @height;
   img {
     height: @height;
+    width:100%;
+  }
+  ul{
+    li{
+      cursor: pointer;
+    }
   }
 }
 </style>
