@@ -4,19 +4,21 @@
 
 // 导入第三方包
 import Vue from 'Vue';
-import VueRouter from 'vue-router';
+// import VueRouter from 'vue-router';
 import Common from '../component/common';
 import MintUi from 'mint-ui';
+import axios from 'axios';
 // 导入插件css
 import 'mint-ui/lib/style.css';
 import 'mui/dist/css/mui.css';
 import 'mui/examples/hello-mui/css/icons-extra.css';
 
 // 手动启用vue插件,在以前VueRouter会自动调用use，但是我们使用了模块化之后，window下没有vue全局变量，就无法自动use
-Vue.use(VueRouter);
+// Vue.use(VueRouter);
 Vue.use(MintUi);
 Vue.use(Common);
-
+// 把axios放置到原型 将来其他组件直接可以拿到
+Vue.prototype.axios = axios;
 // 导入根组件
 import AppComponent from '../component/App.vue';
 
