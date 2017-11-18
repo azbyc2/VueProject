@@ -1,21 +1,21 @@
 <template>
  <nav class="mui-bar mui-bar-tab">
-        <router-link class="mui-tab-item mui-active" href="#tabbar">
+        <a class="mui-tab-item mui-active" href="#tabbar" to="/">
             <span class="mui-icon mui-icon-home"></span>
             <span class="mui-tab-label">首页</span>
-        </router-link>
-        <router-link class="mui-tab-item" href="#tabbar-with-chat">
+        </a>
+        <a class="mui-tab-item" href="#tabbar-with-chat" to="/">
             <span class="mui-icon mui-icon-extra mui-icon-extra-gift"></span>
             <span class="mui-tab-label">商品购买</span>
-        </router-link>
-        <router-link class="mui-tab-item" href="#tabbar-with-contact">
+        </a>
+        <a class="mui-tab-item" href="#tabbar-with-contact" to="/">
             <span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">9</span></span>
             <span class="mui-tab-label">购物车</span>
-        </router-link>
-        <router-link class="mui-tab-item" href="#tabbar-with-map">
+        </a>
+        <a class="mui-tab-item" href="#tabbar-with-map" to="/">
             <span class="mui-icon mui-icon-gear"></span>
             <span class="mui-tab-label">设置</span>
-        </router-link>
+        </a>
     </nav>
 </template>
 
