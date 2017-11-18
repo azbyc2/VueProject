@@ -11,8 +11,5 @@
 </script>
 
 <style>
-    mt-header{
-        font-size: 30px;
-        height:100px;
-    }
+
 </style>

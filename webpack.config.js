@@ -45,10 +45,10 @@ module.exports = {
 
             // 静态资源引用
             {
-                test: /\.(png|jpeg|gif|jpg|svg|mp3)$/,
+                test: /\.(png|jpeg|gif|jpg|svg|mp3|ttf)$/,
                 use: [ //小于10kb的打包
                     {
-                        loader: 'url-loader',
+                        loader:'url-loader',
                         options: {
                             limit: 10240
                         }

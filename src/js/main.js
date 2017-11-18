@@ -5,9 +5,13 @@
 // 导入第三方包
 import Vue from 'Vue';
 import VueRouter from 'vue-router';
+import Common from '../component/common';
 import MintUi from 'mint-ui';
+// 导入插件css
 import 'mint-ui/lib/style.css';
-import Common from '../component/common'
+import 'mui/dist/css/mui.css';
+import 'mui/examples/hello-mui/css/icons-extra.css';
+
 // 手动启用vue插件,在以前VueRouter会自动调用use，但是我们使用了模块化之后，window下没有vue全局变量，就无法自动use
 Vue.use(VueRouter);
 Vue.use(MintUi);
