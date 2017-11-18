@@ -4,16 +4,17 @@
 
 // 导入第三方包
 import Vue from 'Vue';
-import VueRouter from 'vue-router'
-
+import VueRouter from 'vue-router';
+import MintUi from 'mint-ui';
+import 'mint-ui/lib/style.css';
+import Common from '../component/common'
 // 手动启用vue插件,在以前VueRouter会自动调用use，但是我们使用了模块化之后，window下没有vue全局变量，就无法自动use
 Vue.use(VueRouter);
+Vue.use(MintUi);
+Vue.use(Common);
 
-// 导入我们编写的组件
-import App from '../component/App.vue';
-import Home from '../component/home/home.vue'
-import News from '../component/news/news.vue'
-import Photo from '../component/photo/photo.vue'
+// 导入根组件
+import AppComponent from '../component/App.vue';
 
 
 new Vue({
@@ -22,22 +23,7 @@ new Vue({
     // 不需要写template 因为没有解析
     render(c) {
         // 这个函数需要们返回一个组件：把App组件渲染到el标签中
-        return c(App);
-    },
-    router: new VueRouter({
-        routes: [{
-                path: '/',
-                component: Home
-            },
-            {
-                path: '/news',
-                component: News
-            },
-            {
-                path: '/photo',
-                component: Photo
-            }
-        ]
-    })
+        return c(AppComponent);
+    }
 
 })
