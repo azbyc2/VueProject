@@ -3,7 +3,7 @@
 
     <div class="mint-cell-wrapper"><div class="mint-cell-title"><!----> <span class="mint-cell-text"><h4>提交评论</h4></span> <!----></div> <div class="mint-cell-value"><span></span></div></div>
 
-    <textarea placeholder="请输入..." rows="4" class="mint-field-core" v-model='userComment'></textarea>
+    <textarea placeholder="请输入您的评论..." rows="4" class="mint-field-core" v-model='userComment'></textarea>
     <button class="mint-button mint-button--primary mint-button--large" @click='postReview'> <!----> <label class="mint-button-text">发表</label></button>
   
 
@@ -44,17 +44,22 @@ export default {
       this.axios
         .post(
           this.api.postRV + this.$route.params.id,
-          {
-            artid: this.$route.params.id,
-            content: this.userComment
-          },
-          {
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded"
-            }
-          }
+          // {
+          //   artid: this.$route.params.id,
+          //   content: this.userComment
+          // },
+          // 能以对象的方式发送，而是以字符串的方式传递。anxios不自动帮你转字符串所以要自己手动转
+          `artid=${this.$route.params.id}&content=${this.userComment}`,
+          // {
+          //   headers: {
+          //     "Content-Type": "application/x-www-form-urlencoded"
+          //   }
+          // }
         )
-        .then(res => this.getReview(1));
+        .then(res => {
+          this.getReview(1)
+          this.userComment='';
+        });
     },
     getReview(pageindex) {
       this.axios

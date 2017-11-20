@@ -15,26 +15,20 @@
 </div>
 
 <!-- 内容图片列表 -->
-
-  <ul class="imgs">
-    
-    <li v-for="items in PList" v-bind:key='items.id'>
-      <router-link v-bind="{to:`/photo/detail/${items.id}`}">
-      <img :key='items.img_url' v-lazy="items.img_url">
-      <div class="cover">
-        <h4>{{items.title}}</h4>
-        <p>{{items.zhaiyao}}</p> 
-      </div>
-      </router-link>
-    </li>
-  </ul>
-
-
-
-
-
-
-
+<div class="mui-card" v-for="items in PList" v-bind:key='items.id'>
+				<router-link v-bind="{to:`/photo/detail/${items.id}`}">
+        <img class="mui-card-header mui-card-media"  :key='items.img_url' v-lazy="items.img_url"></img>
+         </router-link>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<p class='xiangqing'><h4>{{items.title}}</h4></p>
+						<p class='zhaiyao' style="color: #333;">{{items.zhaiyao}}</p>
+					</div>
+				</div>
+				<div class="mui-card-footer">
+					<router-link class="more" v-bind="{to:`/photo/detail/${items.id}`}">了解详情</router-link>
+				</div>
+</div>
 </section>
   
 </template>
@@ -92,35 +86,21 @@ section {
     }
   }
 
-  .imgs {
-    list-style: none;
-    padding: 5px;
-    margin: 46px 0;
-    li {
-      position: relative;
-      img {
-        width: 100%;
-        height: 300px;
-      }
-      .cover {
-        background-color: rgba(0, 0, 0, 0.3);
-        z-index: 2;
-        position: absolute;
-        bottom: 0;
-        color: white;
-        padding: 5px;
-        p {
-          margin-top: 5px;
-          text-indent: 2rem;
-          color: aliceblue;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 3;
-        }
-      }
-    }
+  .mui-card-header {
+    width: 100%;
+  }
+  .xiangqing {
+  }
+  .zhaiyao {
+    overflow: hidden;
+    text-indent: 2rem;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  .more {
+    color: blueviolet;
   }
 }
 </style>

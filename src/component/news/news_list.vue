@@ -6,7 +6,7 @@
       <ul class="mui-table-view">
 				<li class="mui-table-view-cell mui-media" v-for="item in newsList" v-bind:key="item.id">
 					<router-link v-bind="{to:`/news/detail/${item.id}`}">
-						<img class="mui-media-object mui-pull-left" v-bind:src="item.img_url">
+						<img class="mui-media-object mui-pull-left"  v-lazy="item.img_url" key='item.img_url'>
 						<div class="content">
               	<p> {{ item.zhaiyao }}</p>
              

@@ -56,7 +56,7 @@ section {
   overflow-x: hidden;
   width: 100%;
   color: @fontcolor;
-  margin: 50px 0 80px 0;
+  margin: 50px 0 10px 0;
   padding:0 10px !important;
   h1 {
     font-size: 20px;
