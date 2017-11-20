@@ -49,7 +49,6 @@
 
 
   </article>
-
 </template>
 
 
@@ -63,7 +62,7 @@ export default {
   methods: {
     getLunbo() {
       this.axios
-        .get("http://vue.studyit.io/api/getlunbo")
+        .get(this.api.getLunbo)
         .then(rep => (this.lunbos = rep.data.message));
     }
   },

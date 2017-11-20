@@ -8,6 +8,9 @@ import VueRouter from 'vue-router';
 import Common from '../component/common';
 import MintUi from 'mint-ui';
 import axios from 'axios';
+import VuePreview from 'vue-preview';
+import Filter from '../filter';
+import { Lazyload } from 'mint-ui';
 // 导入插件css
 import 'mint-ui/lib/style.css';
 import 'mui/dist/css/mui.css';
@@ -17,14 +20,30 @@ import 'mui/examples/hello-mui/css/icons-extra.css';
 Vue.use(VueRouter);
 Vue.use(MintUi);
 Vue.use(Common);
-// 把axios放置到原型 将来其他组件直接可以拿到
-Vue.prototype.axios = axios;
+Vue.use(Lazyload); 
+Vue.use(VuePreview);
+Vue.use(Filter);
 // 导入根组件
 import AppComponent from '../component/App.vue';
 
 
 // 导入配置
-import routerConfig from '../router'
+import routerConfig from '../router';
+import apiConfig from './api_config.js';
+
+// 扩展实例成员
+Vue.prototype.axios = axios;
+Vue.prototype.api = apiConfig;
+
+// // 注册日期格式化过滤器
+// import moment from 'moment';
+// Vue.filter('datafmt',function(input,fmtStr){
+//     fmtStr = fmtStr?fmtStr:'YYYY-MM-DD';
+//     return moment(input).format(fmtStr);
+// })
+
+
+
 
 new Vue({
     // 关联页面标签

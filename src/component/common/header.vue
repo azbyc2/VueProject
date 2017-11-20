@@ -11,6 +11,8 @@ export default {};
 
 <style lang='less' scoped>
 header {
+  position:relative;
+  z-index: 999;
  background-color: blueviolet;
  font-size: 20px;
  i {

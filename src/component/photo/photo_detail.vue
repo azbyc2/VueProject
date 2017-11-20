@@ -7,6 +7,13 @@
       <span>{{ item.add_time| Date }}</span>
       <span>{{ item.click }}次浏览</span>
       <hr>
+      <div  class="sImg">
+      
+            <img class="preview-img" v-for="(item, index) in imgs" :src="item.src" height="100" @click="$preview.open(index, imgs)" v-bind:key='item.src'>  
+      </div>
+   <hr>
+
+
     <div v-html='item.content'>
     
     </div>
@@ -28,14 +35,25 @@ import comment from "../subcom/comment.vue";
 export default {
   data() {
     return {
-      tName: "资讯详情",
-      item: ""
+      tName: "图片详情",
+      item: "",
+      imgs: []
     };
   },
   methods: {
-    getNewsDetail() {
-      this.axios.get(this.api.getND + this.$route.params.id).then(res => {
+    getPhotosDetail() {
+      this.axios.get(this.api.getPD + this.$route.params.id).then(res => {
+        //   console.log(res);
         this.item = res.data.message[0];
+      });
+    },
+    getImgs() {
+      this.axios.get(this.api.getPS + this.$route.params.id).then(res => {
+        res.data.message.forEach(function(v) {
+          v.w = 600;
+          v.h = 400;
+        });
+        this.imgs = res.data.message;
       });
     }
   },
@@ -44,7 +62,8 @@ export default {
     "app-comment": comment
   },
   created() {
-    this.getNewsDetail();
+    this.getPhotosDetail();
+    this.getImgs();
   }
 };
 </script>
@@ -57,7 +76,19 @@ section {
   width: 100%;
   color: @fontcolor;
   margin: 50px 0 80px 0;
-  padding:0 10px !important;
+  padding: 0 10px !important;
+  .sImg {
+    display: block;
+    height: auto;
+    overflow: hidden;
+    margin-left: 10px;
+    img {
+      width: 100px;
+      height: 100px;
+      float: left;
+      margin: 4px;
+    }
+  }
   h1 {
     font-size: 20px;
     line-height: 24px;
