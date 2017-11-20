@@ -31,7 +31,7 @@ export default {
         // 图片分享区域
         {
             name: 'pl',
-            path: '/photo/list',
+            path: '/photo/list/:id',
             component: PhotoListComponent
         }, 
         {

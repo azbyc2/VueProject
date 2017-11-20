@@ -2,7 +2,7 @@
   <article>
     <!-- 父传子 -->
     <app-subheader :subtitle="tName"></app-subheader>
-    <section>
+    <section class="outSidebox">
       <h1>{{ item.title }}</h1>
       <span>{{ item.add_time| Date }}</span>
       <span>{{ item.click }}次浏览</span>
@@ -52,11 +52,8 @@ export default {
 <style lang='less'>
 @fontcolor: blueviolet;
 section {
-  box-sizing: border-box;
   overflow-x: hidden;
-  width: 100%;
   color: @fontcolor;
-  margin: 50px 0 10px 0;
   padding:0 10px !important;
   h1 {
     font-size: 20px;

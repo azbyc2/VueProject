@@ -3,7 +3,7 @@
     
  <app-subheader :subtitle="tName"></app-subheader>
 
-      <ul class="mui-table-view">
+      <ul class="outSidebox mui-table-view">
 				<li class="mui-table-view-cell mui-media" v-for="item in newsList" v-bind:key="item.id">
 					<router-link v-bind="{to:`/news/detail/${item.id}`}">
 						<img class="mui-media-object mui-pull-left"  v-lazy="item.img_url" key='item.img_url'>
@@ -53,9 +53,7 @@ export default {
 article {
   
   ul {
-    top: 40px;
     height: 100%;
-    margin-bottom: 50px;
     li {
       .content {
         p {
@@ -74,7 +72,7 @@ article {
         line-height: 35px;
       }
       .click {
-        margin-left: 110px;
+        float:right
       }
     }
   }

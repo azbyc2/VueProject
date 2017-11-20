@@ -15,7 +15,7 @@ import { Lazyload } from 'mint-ui';
 import 'mint-ui/lib/style.css';
 import 'mui/dist/css/mui.css';
 import 'mui/examples/hello-mui/css/icons-extra.css';
-
+import '../less/common.css'
 // 手动启用vue插件,在以前VueRouter会自动调用use，但是我们使用了模块化之后，window下没有vue全局变量，就无法自动use
 Vue.use(VueRouter);
 Vue.use(MintUi);

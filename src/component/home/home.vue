@@ -1,14 +1,16 @@
 <template>
   <article>
+  
+
+   
     <!-- 轮播图 -->
-    <mt-swipe :auto="4000">
+      <mt-swipe :auto="4000">
       <mt-swipe-item v-for="item in lunbos" v-bind:key="item.img">
         <router-link v-bind:to="item.url">
           <img v-bind:src="item.img">
         </router-link>
 
       </mt-swipe-item>
-     
     </mt-swipe>
     <!-- 六宫格 -->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -26,7 +28,7 @@
             </li>
      
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-              <router-link to="../photo/list">
+              <router-link to="../photo/list/0">
                     <span class="mui-icon mui-icon-location"></span>
                     <div class="mui-media-body">图片分享</div>
               </router-link>

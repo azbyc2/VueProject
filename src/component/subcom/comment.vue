@@ -1,9 +1,10 @@
 <template>
 <article>
 
-    <div class="mint-cell-wrapper"><div class="mint-cell-title"><!----> <span class="mint-cell-text"><h4>提交评论</h4></span> <!----></div> <div class="mint-cell-value"><span></span></div></div>
-
-    <textarea placeholder="请输入您的评论..." rows="4" class="mint-field-core" v-model='userComment'></textarea>
+    <div class="mint-cell-wrapper">
+      <div class="mint-cell-title"><!----> <span class="mint-cell-text"><h4>提交评论</h4></span> <!----></div> <div class="mint-cell-value"><span></span></div>
+    </div>
+      <textarea id='tc' placeholder="请输入您的评论..." rows="4" class="mint-field-core" v-model='userComment'></textarea>
     <button class="mint-button mint-button--primary mint-button--large" @click='postReview'> <!----> <label class="mint-button-text">发表</label></button>
   
 
@@ -93,7 +94,10 @@ article {
    .mint-button--danger.is-plain {
     border: 1px solid @Maincolor!important;
     color:@Maincolor
-}
+    }
+    #tc{
+      border :1px solid #cecece;
+    }
 
   .rDistrct {
     margin: 0px;
