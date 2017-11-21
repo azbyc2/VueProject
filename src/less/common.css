@@ -5,3 +5,16 @@
   background-color: #fff;
   box-sizing: border-box;
 }
+.borderColorChange {
+  border: 1px solid rebeccapurple !important;
+  color: rebeccapurple !important;
+}
+.borderColorChange label {
+  color: rebeccapurple;
+}
+.bgcChange {
+  background-color: rebeccapurple !important;
+}
+.cChange {
+  color: blueviolet !important;
+}

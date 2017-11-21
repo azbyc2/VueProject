@@ -38,9 +38,6 @@
 
 <script>
 import { Navbar, TabItem } from "mint-ui";
-
-// Vue.component(Navbar.name, Navbar);
-// Vue.component(TabItem.name, TabItem);
 // 默认导出去 这里写的是该组件的配置
 export default {
   // 数据写在这里

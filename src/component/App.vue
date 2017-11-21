@@ -1,3 +1,4 @@
+// 所有页面的公共格式
 <template>
     <main>
         <app-header></app-header>
@@ -12,8 +13,6 @@ export default {
     
 };
 </script>
-    
-
 <style scoped>
 /* scoped唯一标识 */
 

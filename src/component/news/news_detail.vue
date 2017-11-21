@@ -11,19 +11,12 @@
     
     </div>
     <app-comment></app-comment>
-    
-
-
     </section>
-    
-
   </article>
 </template>
 
 
 <script>
-import sHeadComponent from "../common/sub-header.vue";
-import comment from "../subcom/comment.vue";
 // 默认导出去 这里写的是该组件的配置
 export default {
   data() {
@@ -38,10 +31,6 @@ export default {
         this.item = res.data.message[0];
       });
     }
-  },
-  components: {
-    "app-subheader": sHeadComponent,
-    "app-comment": comment
   },
   created() {
     this.getNewsDetail();

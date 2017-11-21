@@ -4,14 +4,8 @@
 
    
     <!-- 轮播图 -->
-      <mt-swipe :auto="4000">
-      <mt-swipe-item v-for="item in lunbos" v-bind:key="item.img">
-        <router-link v-bind:to="item.url">
-          <img v-bind:src="item.img">
-        </router-link>
+    <lunbos :lunbos='lunbos'></lunbos>  
 
-      </mt-swipe-item>
-    </mt-swipe>
     <!-- 六宫格 -->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -75,17 +69,4 @@ export default {
 </script>
 
 <style lang='less' scoped>
-@height: 260px;
-article {
-  height: @height;
-  img {
-    height: @height;
-    width:100%;
-  }
-  ul{
-    li{
-      cursor: pointer;
-    }
-  }
-}
 </style>

@@ -23,7 +23,6 @@
 
 
 <script>
-import sHeadComponent from "../common/sub-header.vue";
 // 默认导出去 这里写的是该组件的配置
 export default {
   data() {
@@ -38,9 +37,6 @@ export default {
         this.newsList = rep.data.message;
       });
     }
-  },
-    components: {
-    "app-subheader": sHeadComponent
   },
   created() {
     this.getNewsList();

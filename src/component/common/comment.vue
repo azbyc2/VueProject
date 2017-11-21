@@ -5,7 +5,7 @@
       <div class="mint-cell-title"><!----> <span class="mint-cell-text"><h4>提交评论</h4></span> <!----></div> <div class="mint-cell-value"><span></span></div>
     </div>
       <textarea id='tc' placeholder="请输入您的评论..." rows="4" class="mint-field-core" v-model='userComment'></textarea>
-    <button class="mint-button mint-button--primary mint-button--large" @click='postReview'> <!----> <label class="mint-button-text">发表</label></button>
+    <button class="mint-button mint-button--primary mint-button--large bgcChange" @click='postReview'> <!----> <label class="mint-button-text">发表</label></button>
   
 
 
@@ -23,7 +23,7 @@
       </li>
     </ul>
 </div>
-    <button class="mint-button mint-button--danger mint-button--large is-plain" @click='addMore'><!----> <label class="mint-button-text" >加载更多</label></label></button>
+    <button class="mint-button mint-button--danger mint-button--large is-plain borderColorChange" @click='addMore'><!----> <label class="mint-button-text " >加载更多</label></label></button>
 </article>
   
 </template>
@@ -35,7 +35,8 @@ export default {
       reviews: [],
       userComment: "",
       artid: "",
-      pageindex: 1
+      pageindex: 1,
+      isEmpty: false //后台数据是否为空
     };
   },
   methods: {
@@ -50,33 +51,36 @@ export default {
           //   content: this.userComment
           // },
           // 能以对象的方式发送，而是以字符串的方式传递。anxios不自动帮你转字符串所以要自己手动转
-          `artid=${this.$route.params.id}&content=${this.userComment}`,
-          // {
-          //   headers: {
-          //     "Content-Type": "application/x-www-form-urlencoded"
-          //   }
-          // }
+          `artid=${this.$route.params.id}&content=${this.userComment}`
         )
         .then(res => {
-          this.getReview(1)
-          this.userComment='';
+          this.getReview(1);
+          this.userComment = "";
         });
     },
     getReview(pageindex) {
-      this.axios
-        .get(this.api.getRV + this.$route.params.id, {
-          params: {
-            pageindex: pageindex
-          }
-        })
-        .then(res => {
-          this.reviews = res.data.message;
-          console.log(res.data.message.length);
-        });
+   
+      if (!this.isEmpty) {
+           console.log(1);
+      
+        this.axios
+          .get(this.api.getRV + this.$route.params.id, {
+            params: {
+              pageindex: pageindex
+            }
+          })
+          .then(res => {
+            this.reviews=res.data.message;
+            // 如果数据没有了，就不再加载
+            if (res.data.message.length == 0) {
+              this.isEmpty = true;
+            }
+          });
+      }
     },
-    addMore(){
+    addMore() {
       this.pageindex++;
-      this.getReview(this.pageindex)
+      this.getReview(this.pageindex);
     }
   },
   created() {
@@ -86,18 +90,11 @@ export default {
 </script>
 
 <style lang='less'>
-@Maincolor:rebeccapurple;
+@Maincolor: rebeccapurple;
 article {
-   .mint-button--primary{
-      background-color: @Maincolor!important;
-   }
-   .mint-button--danger.is-plain {
-    border: 1px solid @Maincolor!important;
-    color:@Maincolor
-    }
-    #tc{
-      border :1px solid #cecece;
-    }
+  #tc {
+    border: 1px solid #cecece;
+  }
 
   .rDistrct {
     margin: 0px;

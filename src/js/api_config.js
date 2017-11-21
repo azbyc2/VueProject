@@ -13,6 +13,11 @@ export default {
     getPS:`${domain}/getthumimages/`,
     getPD:`${domain}/getimageInfo/`,
     // 商品相关接口
+    getGL:`${domain}/getgoods/`,//该接口后面需要一个页码 /getgoods/?pageindex=number
+    getGD:`${domain}/goods/getdesc/`,//该接口后面需要一个商品id /getdesc/:id
+    getGH:`${domain}/getthumimages/`,//该接口后面需要一个商品id /getthumimages/:id
+    getGI:`${domain}/goods/getinfo/`,//该接口后面需要一个商品id  /getinfo/:id
+
     // 评论相关接口
     postRV:`${domain}/postcomment/`,
     getRV:`${domain}/getcomments/`,
