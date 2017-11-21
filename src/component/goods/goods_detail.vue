@@ -10,13 +10,9 @@
         <!-- 价格 -->    
       <div class="mui-card-content mui-card-content-inner">
         <div class="price"> <s>市场价:￥{{goodsInfo.market_price}}</s> <span>销售价: </span> <em>￥{{goodsInfo.sell_price}}</em> </div>
-        <div> <span>购买数量：{{ goodsInfo.stock_quantity }}</span>
+        <div> <span>购买数量</span>
           <!--数字输入框 -->
-          <div class="mui-numbox">
-          	<button class="mui-btn mui-btn-numbox-minus">-</button>
-          	<input class="mui-input-numbox" type="number">
-          	<button class="mui-btn mui-btn-numbox-plus">+</button>        
-          </div>
+           <num-box :initVal='buyCount' @change='getNum' ></num-box>
           <div>
             
             <h4>产品参数</h4>
@@ -31,7 +27,7 @@
       <div class="mui-card-footer">
       	<button type="button" class="mui-btn borderColorChange mui-btn-success mui-btn-block mui-btn-outlined">结算</button>
         <div></div>
-        <button type="button" class="borderColorChange mui-btn mui-btn-success mui-btn-block mui-btn-outlined">加入购物车</button>
+        <button @click="addToCart" type="button" class="borderColorChange mui-btn mui-btn-success mui-btn-block mui-btn-outlined">加入购物车</button>
       </div>
     </div>
 
@@ -59,6 +55,7 @@
 </template>
 
 <script>
+import storage from '../../js/storage'
 export default {
   data() {
     return {
@@ -69,7 +66,8 @@ export default {
       id: this.$route.params.id,
       showID: "",
       lunbos: [],
-      select: ""
+      select: "",
+      buyCount:0,
     };
   },
   methods: {
@@ -89,6 +87,20 @@ export default {
       this.axios.get(this.api.getGH + this.id).then(res => {
         this.lunbos = res.data.message;
       });
+    },
+    // 获取最新的购买数量,并存储起来
+    getNum(total){
+      console.log(total);
+      this.buyCount = total
+    },
+    // 加入购物车
+    addToCart(){
+      // 取出旧的值
+      let oldBuyData = storage.get("goodsBuyCount")||{};
+      // 添加或者修改商品的购买记录
+      oldBuyData[this.id]=this.buyCount;
+      // 把新的数据存起来
+      storage.set('goodsBuyCount',oldBuyData)
     }
   },
   created() {
@@ -101,12 +113,12 @@ export default {
 
 <style lang="less">
 @height: 260px;
-.goods-detail .mint-tab-item.is-selected {
-  border-bottom-color: rebeccapurple !important;
-}
+// .goods-detail .mint-tab-item.is-selected {
+//   border-bottom-color: rebeccapurple !important;
+// }
 
 .mint-tab-item-label {
-  color: blueviolet !important;
+  color: rebeccapurple !important;
 }
 .mint-swipe {
   height: 355px !important;
@@ -140,8 +152,8 @@ export default {
   .mint-tab-item {
     &.is-selected {
       margin-bottom: 0;
-      border-bottom: 3px solid #2ce094;
-      color: #2ce094;
+      border-bottom: 3px solid blueviolet;
+      color: rebeccapurple;
     }
   }
   .mint-tab-item-label {

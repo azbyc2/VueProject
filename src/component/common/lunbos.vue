@@ -7,7 +7,7 @@
     </mt-swipe>
 
 
-    <mt-swipe class="l2":auto="4000" v-if="$route.path!='/'">
+    <mt-swipe class="l2":auto="4000" v-if="$route.path!='/index'">
         <mt-swipe-item v-for="item in lunbos" v-bind:key="item.src">
           <img v-bind:src="item.src">
       </mt-swipe-item>

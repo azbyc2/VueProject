@@ -3,7 +3,8 @@ import HeaderComponent from './header.vue';
 import FooterComponent from './footer.vue';
 import Lunbos from './lunbos.vue';
 import CommentComponent from './comment.vue';
-import subHeaderComponent from './sub-header.vue'
+import subHeaderComponent from './sub-header.vue';
+import NumboxComponent from './numbox.vue'
 // Vue插件要求提供一个install方法, 这个方法会被注入Vue
 // 需要我们调用Vue的filter component directive去扩展功能
 export default {
@@ -13,5 +14,6 @@ export default {
         Vue.component('lunbos',Lunbos);
         Vue.component('app-comment',CommentComponent);
         Vue.component('app-subheader',subHeaderComponent);
+        Vue.component('num-box',NumboxComponent);
     }
 }
